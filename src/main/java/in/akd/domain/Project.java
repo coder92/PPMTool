@@ -2,12 +2,17 @@ package in.akd.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Project {
@@ -16,12 +21,27 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@NotBlank(message="Project Name is requered")
 	private String projectName;
+	
+	@NotBlank(message="Project Identifier is mandatory")
+	@Size(min=4, max=5, message="Please enter 4-5 character")
+	@Column(updatable=false, unique=true)
 	private String projectIdentifier;
+	
+	@NotBlank(message="description is mandatory")
 	private String description;
+	
+	@JsonFormat(pattern="yy-mm-dd")
 	private Date start_date;
+	
+	@JsonFormat(pattern="yy-mm-dd")
 	private Date end_date;
+	
+	@JsonFormat(pattern="yy-mm-dd")
 	private Date created_At;
+	
+	@JsonFormat(pattern="yy-mm-dd")
 	private Date updated_At;
 	
 	public Project(){
