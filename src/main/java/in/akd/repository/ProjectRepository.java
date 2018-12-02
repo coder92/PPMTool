@@ -8,9 +8,11 @@ import in.akd.domain.Project;
 @Repository
 public interface ProjectRepository extends CrudRepository<Project, Long> {
 
-	@Override
+	Project findByProjectIdentifier(String projectId);
+	
+	/*@Override
 	default Iterable<Project> findAllById(Iterable<Long> ids) {
 		return null;
-	}
+	}*/
 	
 }
