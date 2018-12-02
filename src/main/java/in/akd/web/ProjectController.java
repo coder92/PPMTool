@@ -25,10 +25,12 @@ public class ProjectController {
 	@Autowired
 	MapValidationErrorService mapValidationErrorService;
 		
-	//@Valid - to get valid request body and response 
+	//@Valid - to get valid request body
 	@PostMapping("") 
 	public ResponseEntity<?> createNewProject(@Valid @RequestBody Project project, BindingResult result){
-		
+		//TODO: custom debugging
+		System.out.println(">>1>>"+this.getClass());
+		//validate the project object 
 		ResponseEntity<?>errorMap = mapValidationErrorService.mapValidationService(result);
 		if(errorMap!=null) {
 			return errorMap;
