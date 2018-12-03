@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import ProjectItem from './Project/ProjectItem';
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
   render() {
     return (
-      <h1 className="m2-1">welcome to Dashboard</h1>
+      <div>
+      <h1>welcome to Dashboard</h1>
+      <ProjectItem />
+      </div>
     )
   }
 }
 
+export default Dashboard;
