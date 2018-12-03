@@ -13,7 +13,10 @@ public class ProjectService {
 	@Autowired
 	private ProjectRepository projectRepository;
 	
-	public Project saveOrupdateProject(Project project) {
+	//JPA check the DB for the id if exist then it updated it 
+	//only we need to give id from client if we wanted update
+	//if we wanted create new then no "id" should provide
+	public Project saveOrUpdateProject(Project project) {
 		try {
 			project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
 			return projectRepository.save(project);
