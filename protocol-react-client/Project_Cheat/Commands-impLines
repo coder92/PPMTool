@@ -1,0 +1,14 @@
+//git commands
+
+
+//creating npm app 
+
+//
+
+
+
+//install redux into app: S3L31
+npm i redux react-redux redux-thunk 
+
+//installing axios : api for connecting react to spring
+npm i axios
