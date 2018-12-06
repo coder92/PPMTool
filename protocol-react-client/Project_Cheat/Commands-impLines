@@ -12,3 +12,17 @@ npm i redux react-redux redux-thunk
 
 //installing axios : api for connecting react to spring
 npm i axios
+
+branch17
+{
+->AddProject{
+    onChange(){} - : for binding the value to the fields
+    }
+
+->store.js{combineReducers}
+->index.js
+->store.js{window.navigator...}
+->App.js{Provider, store}
+}
+
+

@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {createProject} from '../../actions/projectActions';
+
 
 class AddProject extends Component {
 
   constructor(){
     super();
+    console.log(this+":AddProject:Constructor");
     this.state = {
       projectName: "",
       projectIdentifier: "",
@@ -16,11 +21,13 @@ class AddProject extends Component {
   }
 
   onChange(e){
+    console.log(":test:AddProject:onChange()");
     console.log(e);
     this.setState({[e.target.name]: e.target.value});
   }
 
   onSubmit(e){
+    console.log(":test:AddProject:onSubmit()");
     e.preventDefault();
     const newProject ={
       projectName: this.state.projectName,
@@ -28,8 +35,9 @@ class AddProject extends Component {
       description: this.state.description,
       start_date: this.state.start_date,
       end_date: this.state.end_date
-    }
-
+    };
+    this.props.createProject(newProject, this.props.history)
+    console.log(":test:AddProject:onSubmit():newProject");
     console.log(newProject);
   }
 
@@ -117,5 +125,11 @@ class AddProject extends Component {
     );
   }
 }
+console.log(":test:AddProject:AddProject.propTypes");
+AddProject.propTypes = {
+  
+  createProject: PropTypes.func.isRequired 
+}
 
-export default AddProject;
+//export default AddProject;
+export default connect(null, {createProject}) (AddProject);
